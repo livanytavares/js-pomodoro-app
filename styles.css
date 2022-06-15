@@ -1,0 +1,51 @@
+.dashboard {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: pink;
+    padding: 5px;
+}
+.dashboard.card {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border: #fff 1px solid;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
+    margin: 5px;
+}
+.card.title{
+    font-size: small;
+    color: #cecece;
+}
+.card.data{
+    font-size: x-large;
+    color: darkmagenta;
+    font-weight: bold;
+}
+.tasks-list.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: darkmagenta;
+    padding: 5px;
+    min-height: 100px;
+}
+.tasks-list.item {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+.tasks-list.item.input {
+    border-radius: 3px;
+    border-color: #cecece;
+    background-color: #fff;
+}
+.tasks-list.item.pomodoro-button {
+    border-radius: 3px;
+}
