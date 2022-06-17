@@ -1,0 +1,85 @@
+* { padding: 0; margin: 0;}
+
+html, body {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+body {
+    background-color: #cecece;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 1em;
+    height: 100%;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 0.5em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+.dashboard.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #fff 1px solid;
+    border-radius: 0;
+    background-color: #fff;
+    padding: 1em;
+    margin: 0;
+}
+.card.title{
+    font-size: small;
+    color: #cecece;
+}
+.card.data{
+    font-size: x-large;
+    color: darkmagenta;
+    font-weight: bold;
+}
+.tasks-list.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+.tasks-list.item {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
+.tasks-list.item.input {
+    border-radius: 3px;
+    border: 1px #cecece solid;
+    background-color: #fff;
+    margin: 0;
+    flex-grow: 1;
+    margin: 0 1em 0 0;
+}
+.tasks-list.item.pomodoro-button {
+    border-radius: 3px;
+    margin: 0;
+    width: 5rem;
+    background-color: darkmagenta;
+    border-color: darkmagenta;
+    color: white;
+    justify-content: center;
+}
