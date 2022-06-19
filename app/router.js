@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const TaskController = require('./controllers/taskController')
 
-router.get('/', (req,res,next)=>{
-    res.render('index', {title: 'Pomodoro app'})
-})
+router.get('/', TaskController.dashboard)
+
+router.post('/task')
 
 module.exports = router
