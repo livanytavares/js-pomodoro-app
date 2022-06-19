@@ -1,4 +1,5 @@
 const express = require("express")
+const router = require('./app/router')
 
 const app = express()
 const port = 3000
@@ -9,13 +10,8 @@ app.use(express.static('public'))
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'public/views'))
 
-
-app.get('/', (req, res)=>{
-    res.render('index', {title: 'Pomodoro app'})
-})
-
+app.use('/', router)
 
 app.listen(port, ()=>{
     console.log(`App listening on port ${port}`)
 })
-
