@@ -12,11 +12,11 @@ head
       .card.title Completed tasks
     .dashboard.card
       .card.data 12
-      .card.title Estimated pomodoro time (min)
+      .card.title Estimated focus time (min)
   form.tasks-list.form
     .tasks-list.item
-      input.tasks-list.item.input(type='text' placeholder='Add new task')
-      input.tasks-list.item.pomodoro-button(type='button' value='set timer')
-    .tasks-list.item
-      input.tasks-list.item.input(type='text' placeholder='Add new task')
-      input.tasks-list.item.pomodoro-button(type='button' value='set timer')
+      input.tasks-list.item.input(type='text' placeholder='Task name')
+      .action-container 
+        input.pomodoro-button(type='button' value='Start')
+        input.pomodoro-button(type='button' value='Pause')
+        input.pomodoro-button(type='button' value='Finish')
