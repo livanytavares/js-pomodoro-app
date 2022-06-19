@@ -1,0 +1,22 @@
+doctype html
+head
+  style 
+    include ../stylesheets/style.css
+  meta(http-equiv='Content-Type' content='text/html;charset=UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title= title
+.body-container
+  .dashboard
+    .dashboard.card
+      .card.data 0
+      .card.title Completed tasks
+    .dashboard.card
+      .card.data 12
+      .card.title Estimated pomodoro time (min)
+  form.tasks-list.form
+    .tasks-list.item
+      input.tasks-list.item.input(type='text' placeholder='Add new task')
+      input.tasks-list.item.pomodoro-button(type='button' value='set timer')
+    .tasks-list.item
+      input.tasks-list.item.input(type='text' placeholder='Add new task')
+      input.tasks-list.item.pomodoro-button(type='button' value='set timer')
