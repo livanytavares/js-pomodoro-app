@@ -4,6 +4,6 @@ const TaskController = require('./controllers/taskController')
 
 router.get('/', TaskController.dashboard)
 
-router.post('/task')
+router.post('/task', TaskController.create_task)
 
 module.exports = router
