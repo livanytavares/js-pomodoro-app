@@ -5,21 +5,23 @@ head
   meta(http-equiv='Content-Type' content='text/html;charset=UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title= title
+  script 
+    include ../utils/pomodoro.js
 .body-container
   .dashboard
     .dashboard.card
       .card.data 0
       .card.title Completed tasks
     .dashboard.card
-      .card.data 12
+      #countDown.card.data 0
       .card.title Estimated focus time (min)
-  form.tasks-list.form
+  form(action='').tasks-list.form
     .tasks-list.item
       input.tasks-list.item.input(type='text' placeholder='Task name')
       .action-container 
-        input.pomodoro-button(type='button' value='Start')
-        input.pomodoro-button(type='button' value='Pause')
-        input.pomodoro-button(type='button' value='Finish')
+        input.pomodoro-button(type='button' value='Start' onclick='startPomodoro()')
+        input.pomodoro-button(type='button' value='Pause' onclick='pausePomodoro()')
+        input.pomodoro-button(type='button' value='Finish' onclick='finishPomodoro()')
     .add-list-container
       input.add-list-button(type='button' value='+' )
       
