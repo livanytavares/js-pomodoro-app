@@ -10,41 +10,42 @@ var timerId;
 var isTimerRunning = false;
 const pauseTimer = () => {return isTimerRunning = false}
 const startTimer = () => {return isTimerRunning = true}
-var countDownMinutes = 30
+var countDownMinutes = 29
 var countDownSeconds = 60
-
-timerId = setInterval(() => {
-    if(isTimerRunning){
-        if(countDownSeconds == 0 && countDownMinutes >= 0){
-            countDownSeconds = 60
-            countDownMinutes-- 
-        }
-        countDownSeconds--
-
-        if (countDownMinutes == 0 && countDownSeconds == 0) {
-            //TODO: Render the message on the UI
-            console.log('Time Up!')
-
-        }
-        document.querySelector('#countDown').innerHTML = `${countDownMinutes}:${countDownSeconds}`
-    }
-}, 1000) 
-
 
 const startPomodoro = () => {
     startTimer()
+    
+    if(!timerId){
+        timerId = setInterval(() => {
+            if(isTimerRunning){
+                if(countDownSeconds == 0 && countDownMinutes >= 0){
+                    countDownSeconds = 60
+                    countDownMinutes-- 
+                }
+                countDownSeconds--
+
+                if (countDownMinutes == 0 && countDownSeconds == 0) {
+                    //TODO: Render the message on the UI
+                    console.log('Time Up!')
+
+                }
+                document.querySelector('#countDown').innerHTML = `${countDownMinutes}:${countDownSeconds}`
+            }
+        }, 1000) 
+    }
 }
 
 const pausePomodoro = () => {
     pauseTimer()
 }
 
-const finishPomodoro = () => {
+const resetPomodoro = () => {
     clearInterval(timerId)
+    timerId = null
+    countDownMinutes = 29
+    countDownSeconds = 60
     document.querySelector('#countDown').innerHTML = `0`
 }
-
-
-
 
 
