@@ -1,5 +1,3 @@
-console.log('JS file have been loaded') //
-
 const SECONDS = 1000
 const MINUTES = SECONDS * 60
 const HOURS = MINUTES * 60
@@ -8,18 +6,15 @@ const POMODORO_MINUTES = 30 * MINUTES
 const SHORT_BREAK_MINUTES = 5 * MINUTES
 const LONG_BREAK_MINUTES = 15 * MINUTES
 
-var dateTimeWhenThePomodoroStart = new Date().getTime()
-var dateTimeWhenPomodoroShouldEnd = new Date(dateTimeWhenThePomodoroStart + POMODORO_MINUTES) 
-
-var counterId;
-var isCounterRunning = false;
-const pauseCounter = () => {return isCounterRunning = false}
-const startCounter = () => {return isCounterRunning = true}
+var timerId;
+var isTimerRunning = false;
+const pauseTimer = () => {return isTimerRunning = false}
+const startTimer = () => {return isTimerRunning = true}
 var countDownMinutes = 30
 var countDownSeconds = 60
 
-counterId = setInterval(() => {
-    if(isCounterRunning){
+timerId = setInterval(() => {
+    if(isTimerRunning){
         if(countDownSeconds == 0 && countDownMinutes >= 0){
             countDownSeconds = 60
             countDownMinutes-- 
@@ -35,25 +30,20 @@ counterId = setInterval(() => {
     }
 }, 1000) 
 
+
+const startPomodoro = () => {
+    startTimer()
+}
+
 const pausePomodoro = () => {
-    pauseCounter()
+    pauseTimer()
 }
 
 const finishPomodoro = () => {
+    clearInterval(timerId)
     document.querySelector('#countDown').innerHTML = `0`
 }
 
-const startPomodoro = () => {
-    startCounter()
-}
-
-const convertTimeLeftInMinutes = (timeInMilisec) => {
-    return Math.trunc((timeInMilisec % HOURS) / MINUTES);
-}
-
-const convertTimeLeftInSeconds = (timeInMilisec) => {
-    return Math.trunc((timeInMilisec % MINUTES) / SECONDS)
-}
 
 
 
