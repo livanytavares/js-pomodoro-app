@@ -11,32 +11,40 @@ const LONG_BREAK_MINUTES = 15 * MINUTES
 var dateTimeWhenThePomodoroStart = new Date().getTime()
 var dateTimeWhenPomodoroShouldEnd = new Date(dateTimeWhenThePomodoroStart + POMODORO_MINUTES) 
 
+var counterId;
+var isCounterRunning = false;
+const pauseCounter = () => {return isCounterRunning = false}
+const startCounter = () => {return isCounterRunning = true}
+var countDownMinutes = 30
+var countDownSeconds = 60
+
+counterId = setInterval(() => {
+    if(isCounterRunning){
+        if(countDownSeconds == 0 && countDownMinutes >= 0){
+            countDownSeconds = 60
+            countDownMinutes-- 
+        }
+        countDownSeconds--
+
+        if (countDownMinutes == 0 && countDownSeconds == 0) {
+            //TODO: Render the message on the UI
+            console.log('Time Up!')
+
+        }
+        document.querySelector('#countDown').innerHTML = `${countDownMinutes}:${countDownSeconds}`
+    }
+}, 1000) 
+
 const pausePomodoro = () => {
-    console.log('pause have not be implemented')
+    pauseCounter()
 }
 
 const finishPomodoro = () => {
-    console.log('finish have not be implemented')
+    document.querySelector('#countDown').innerHTML = `0`
 }
 
 const startPomodoro = () => {
-
-    setInterval(() => {
-        var now = new Date().getTime()
-
-        var currentTimeLeftInMilisec = dateTimeWhenPomodoroShouldEnd - now
-
-        var countDownMinutes = convertTimeLeftInMinutes(currentTimeLeftInMilisec)
-        var countDownSeconds = convertTimeLeftInSeconds(currentTimeLeftInMilisec)
-
-        if (currentTimeLeftInMilisec <= 0) {
-            //TODO: Render the message on the UI
-            console.log('Time Up!')
-        }
-
-        document.querySelector('#countDown').innerHTML = `${countDownMinutes}:${countDownSeconds}`
-    
-    }, 1000) 
+    startCounter()
 }
 
 const convertTimeLeftInMinutes = (timeInMilisec) => {
